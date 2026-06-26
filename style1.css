@@ -1,0 +1,161 @@
+<!-- Box Model-->
+/* Etape crucial du box model: On force le padding et les bordures
+à etre inclus dans la largeur et la hauteur des elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Navbar */
+header {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Ombre léger sous le menu */
+
+}
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e74c3c; /* Couleur rouge pour le logo */
+    letter-spacing: 1px;
+    font-family: 'Playfair Display', serif;
+    text-transform: uppercase;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px; /* Espacement entre les liens */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #555; /* Couleur gris foncé pour les liens */
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #e74c3c; /* Changement de couleur au survol */
+}
+
+/*Layout et structure de la page */
+.menu-container {
+    max-width: 1200px;
+    margin: 40px auto; /* Centrer le contenu */
+    padding: 0 20px;
+}
+.menu-container h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: #2c3e50; /* Couleur bleu foncé pour le titre */
+    position: relative;
+}
+
+.pizza-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px; /* Espacement entre les cartes de pizza */
+}
+
+/* Carte de pizza */
+.pizza-card {
+    background-color: #ffffff;
+    border-radius: 15px; /* Bords arrondis pour les cartes */
+    overflow: hidden; /* Assurer que l'image ne dépasse pas les bords arrondis */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Ombre légère pour donner de la profondeur */
+    /*Animation d'apparition au survol */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    /*Animation au chargement de la page */
+    animation: apparitionDouce 0.6s ease-out forwards;
+}
+
+/*Gestion des images dans les cartes de pizza */
+.pizza-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Assurer que l'image couvre toute la zone sans déformation */
+    transition: transform 0.4s ease; /* Animation de zoom au survol */
+}
+
+/*Espace pour les informations de la pizza */
+.pizza-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Espacement entre le titre et la description */
+}
+.pizza-info h3 {
+    font-size: 1.3rem;
+    color: #2c3e50; /* Couleur bleu foncé pour le titre de la pizza */
+
+}
+.pizza-info p {
+    font-size: 0.95rem;
+    color: #7f8c8d; /* Couleur gris clair pour la description */
+    height: 60px; /* Limiter la hauteur de la description pour uniformiser les cartes */
+    overflow: hidden; /* Masquer le texte qui dépasse */
+}
+.price {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #27ae60; /* Couleur vert pour le prix */
+}
+ /*Bouton d'action pour commander */
+ .btn-order {
+    background-color: #e74c3c; /* Couleur rouge pour le bouton */
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+ }
+
+ .pizza-card:hover {
+   transform: translateY(-10px); /* Légère élévation de la carte au survol */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Ombre plus prononcée au survol */
+ }
+ .pizza-card:hover img {
+    transform: scale(1.05); /* Zoom léger de l'image au survol */
+ }
+ .btn-order:hover {
+    background-color: #c0392b; /* Changement de couleur au survol */
+    transform: scale(1.05); /* Légère augmentation de la taille du bouton au survol */
+ }
+ .btn-order:active {
+    transform: scale(0.95); /* Effet de pression du bouton */
+ }
+ /* Animation d'apparition douce pour les cartes de pizza */
+ @keyframes apparitionDouce {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+ }
+
+ /*footer */
+footer {
+    background-color: #2c3e50; /* Couleur bleu foncé pour le footer */
+    color: #ffffff; /* Couleur blanche pour le texte */
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 40px; /* Espacement au-dessus du footer */
+    font-size: 0.9rem;
+}
